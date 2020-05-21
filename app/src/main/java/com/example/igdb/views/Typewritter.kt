@@ -1,4 +1,4 @@
-package com.example.igdb.utils
+package com.example.igdb.views
 
 import android.content.Context
 import android.content.Intent
@@ -24,6 +24,8 @@ class Typewriter : androidx.appcompat.widget.AppCompatTextView {
             text = mText!!.subSequence(0, mIndex++)
             if (mIndex <= mText!!.length) {
                 mHandler.postDelayed(this, mDelay)
+            } else if (mIndex == mText!!.length + 1) {
+                mHandler.postDelayed(startMainActivity(),mDelay)
             }
         }
     }
@@ -36,12 +38,13 @@ class Typewriter : androidx.appcompat.widget.AppCompatTextView {
         mHandler.postDelayed(characterAdder, mDelay)
     }
 
-    private fun startMainActivity(text: CharSequence?){
-        if(text?.lastIndex == text?.length){
-            val intent = Intent(context, MainActivity::class.java).also {
-                startActivity(context,it,null)
+    private fun startMainActivity() = Runnable {
+        kotlin.run {
+            Intent(context, MainActivity::class.java).also {
+                startActivity(context, it, null)
             }
         }
+
     }
 
 }

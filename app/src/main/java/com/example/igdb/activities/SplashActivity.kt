@@ -1,9 +1,9 @@
 package com.example.igdb.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.igdb.R
-import com.example.igdb.utils.Typewriter
+import com.example.igdb.views.Typewriter
 
 class SplashActivity : AppCompatActivity() {
 
@@ -11,11 +11,11 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         showAnimatedTitle("IGDB")
+
     }
 
-    private fun showAnimatedTitle( splashTitle:String){
+    private fun showAnimatedTitle(splashTitle: String) {
         val writer = findViewById<Typewriter>(R.id.splashTitle)
-
         writer.animateText(splashTitle)
     }
 }

@@ -7,7 +7,7 @@
     android:background="@color/splashBg"
     tools:context=".activities.SplashActivity">
 
-    <com.example.igdb.utils.Typewriter
+    <com.example.igdb.views.Typewriter
         android:id="@+id/splashTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
